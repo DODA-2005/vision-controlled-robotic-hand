@@ -1,4 +1,4 @@
-# Vision-Controlled Robotic Hand
+# Computer-Vision Controlled Robotic Hand
 
 A fully functional, computer-vision–controlled robotic hand that mirrors human finger movements in real time using a standard webcam.
 
