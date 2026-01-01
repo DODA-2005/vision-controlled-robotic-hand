@@ -102,7 +102,11 @@ The control electronics were implemented on a zero-board using direct tin wiring
 
 ## System Integration
 
-<img src="images/all_connected.jpg" alt="System wiring" width="600">
+<p align="center">
+  <img src="images/all_connected_clean.jpg" width="600">
+  <br>
+  <em>LiPo-powered system with buck regulation and Nano-based control electronics</em>
+</p>
 
 ---
 
