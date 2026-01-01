@@ -1,0 +1,75 @@
+CERN Open Hardware Licence Version 2 – Permissive
+
+Copyright (c) 2024–2025 Pranav Anil
+
+This licence applies to all hardware design files in this repository,
+including but not limited to schematics, PCB layouts, fabrication files,
+and associated documentation, except where otherwise stated.
+
+-----------------------------------------------------------------------
+
+CERN OPEN HARDWARE LICENCE VERSION 2 – PERMISSIVE
+
+1. Definitions
+
+“Licence” means this CERN Open Hardware Licence Version 2 – Permissive.
+
+“Licensed Material” means any work of authorship, including hardware design
+materials, documentation, or any other material, that is licensed under this
+Licence.
+
+“Licensor” means the individual or entity offering the Licensed Material under
+this Licence.
+
+“You” (or “Your”) means an individual or entity exercising permissions granted
+by this Licence.
+
+“Source” means the preferred form of the Licensed Material for making
+modifications.
+
+“Product” means any device or physical object whose design is based, in whole
+or in part, on the Licensed Material.
+
+2. Licence Grant
+
+Subject to the terms and conditions of this Licence, the Licensor hereby grants
+You a worldwide, royalty-free, non-exclusive, perpetual licence to:
+
+(a) use, reproduce, and modify the Licensed Material;
+(b) manufacture, have manufactured, distribute, and sell Products;
+(c) sublicense the Licensed Material and Products.
+
+3. Attribution
+
+You must give appropriate credit to the Licensor, provide a copy of this
+Licence, and indicate if changes were made. Attribution must be provided in a
+reasonable manner, but not in any way that suggests the Licensor endorses You
+or Your use.
+
+4. No Warranty
+
+THE LICENSED MATERIAL IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NONINFRINGEMENT.
+
+5. Limitation of Liability
+
+IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
+OUT OF, OR IN CONNECTION WITH THE LICENSED MATERIAL OR THE USE OR OTHER
+DEALINGS IN THE LICENSED MATERIAL.
+
+6. Termination
+
+This Licence and the rights granted hereunder will terminate automatically if
+You fail to comply with any term or condition of this Licence. Upon
+termination, You must cease all use of the Licensed Material.
+
+7. Applicable Law
+
+This Licence shall be governed by and construed in accordance with the laws of
+the jurisdiction applicable to the Licensor.
+
+-----------------------------------------------------------------------
+
+END OF TERMS AND CONDITIONS
