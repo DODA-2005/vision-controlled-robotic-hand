@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "Vision-Controlled Robotic Hand"
+authors:
+  - family-names: Anil
+    given-names: Pranav
+version: 1.0.0
+date-released: 2025-01-01
+url: https://github.com/DODA-2005/vision-controlled-robotic-hand
+license: MIT
