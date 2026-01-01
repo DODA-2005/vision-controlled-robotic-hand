@@ -166,4 +166,12 @@ Future improvements may include feedback sensors, and improved kinematic mapping
 Pranav Anil  
 Robotics & Embedded Systems  
 
-If you build on this, credit is appreciated.
+## Attribution
+
+If you use, modify, or build upon this project, you must provide
+clear attribution to the original author:
+
+**Pranav Anil – Vision-Controlled Robotic Hand**
+
+This includes forks, derivative works, publications, demonstrations,
+and redistributed code or hardware designs.
