@@ -56,21 +56,27 @@ Mechanical modifications were made to integrate electronics, power routing, and 
 
 ## Electronics and Power
 
+The control and power system is implemented using a zero board (perfboard) with point-to-point wiring.
+
+A custom PCB was intentionally not used for this build. Given the prototype-oriented nature of the system and the need for rapid iteration, a zero board solution provided faster debugging, easier modifications, and sufficient reliability.
+
 ### Microcontroller
 - Arduino Nano
-  - Handles servo PWM generation
-  - Receives real-time commands over serial
+  - Dedicated to low-level servo control
+  - Receives real-time angle commands over serial
 
 ### Power System
 - High-current DC–DC buck converter
-- Dedicated servo power rail
-- Common ground between logic and power stages
-- Custom prototyping PCB used for:
-  - Power distribution
-  - Servo headers
-  - Debug indicators
+- External LiPo battery supply
+- Separate high-current servo power rail
+- Common ground shared between logic and power stages
 
-The power system was designed to handle transient servo loads without brownouts or signal instability.
+### Wiring
+- Servo power routed using thicker-gauge wiring
+- Signal lines kept short to reduce noise
+- All interconnections soldered directly on perfboard
+
+This approach proved stable under continuous operation and allowed quick changes during calibration and testing.
 
 ---
 
