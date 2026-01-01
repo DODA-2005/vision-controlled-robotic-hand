@@ -1,167 +1,150 @@
 # Vision-Controlled Robotic Hand
 
-A fully functional robotic hand controlled in real time using computer vision.  
-The system tracks human hand motion using OpenCV and MediaPipe and mirrors finger movements on a physical robotic hand via an Arduino-based control stack.
+A fully functional, computer-vision–controlled robotic hand that mirrors human finger movements in real time using a standard webcam.
 
-This project has been physically built, powered, tested, and demonstrated. It is not a simulation or proof-of-concept.
+This project combines mechanical actuation, embedded control, and real-time vision processing. Hand landmark tracking is performed on the PC, while low-level motor control is handled by an Arduino-based controller.
+
+This repository documents a **working system**, not a simulation or concept build.
 
 ---
 
-## Project Overview
+## Overview
 
-The robotic hand replicates human finger motion by combining real-time hand landmark detection with embedded servo control.
+The robotic hand is controlled using hand-tracking data extracted from a live camera feed. Finger positions are mapped to servo angles and transmitted to the controller over serial communication.
 
-A camera feed is processed on a host computer using MediaPipe Hands. Finger joint positions are converted into joint angles, which are streamed over a serial interface to an Arduino Nano. The Arduino generates PWM signals to drive individual servo motors controlling each finger.
+The system was built with rapid iteration and reliability in mind, using a zero-board (perfboard) wiring approach rather than a custom PCB.
 
-The mechanical structure is based on the open-source InMoov hand design. All electronics, wiring, power distribution, and control logic were designed and implemented independently.
+Mechanical inspiration for the hand structure was taken from the open-source InMoov project. Electronics, wiring logic, control strategy, and software integration were designed and implemented independently.
 
 ---
 
 ## System Architecture
 
-Camera  
-→ OpenCV + MediaPipe (Python)  
-→ Finger angle computation  
-→ Serial communication  
-→ Arduino Nano  
-→ Servo PWM output  
-→ Robotic hand motion
+```
+Webcam
+  ↓
+Python (OpenCV + MediaPipe)
+  ↓  Serial (USB)
+Arduino Nano
+  ↓
+Servo Motors
+  ↓
+Robotic Hand
+```
 
 ---
 
-## Key Features
+## Hardware
 
-- Real-time vision-based finger tracking  
-- No gloves, flex sensors, or wearable hardware  
-- Arduino Nano used as a dedicated low-level controller  
-- High-current external power supply for servos  
-- Stable operation under continuous use  
-- Modular wiring and serviceable electronics layout  
+- **Controller:** Arduino Nano  
+- **Actuators:** MG996R servo motors (one per finger)  
+- **Power:**  
+  - 3S LiPo battery  
+  - External DC-DC buck converter for regulated servo power  
+- **Wiring:**  
+  - Zero board (perfboard) with point-to-point soldering  
+  - No custom PCB used in this build  
+- **Mechanical:**  
+  - 3D printed hand structure  
+  - Tendon-driven fingers using braided line  
 
----
-
-## Mechanical Design
-
-- Mechanical base: InMoov robotic hand (open-source)
-- Actuation:
-  - 5 × MG996R high-torque servo motors (one per finger)
-- Tendon system:
-  - Nylon tendons routed through printed finger segments
-- Wrist joint:
-  - Experimentally tested and later locked to avoid excessive tendon stress
-
-Mechanical modifications were made to integrate electronics, power routing, and cable management into the palm and forearm structure.
+> Power for servos is isolated from the Arduino logic supply to prevent brownouts.
 
 ---
 
-## Electronics and Power
+## Software
 
-The control and power system is implemented using a zero board (perfboard) with point-to-point wiring.
+### Python (Host Side)
+- OpenCV – video capture and processing  
+- MediaPipe – real-time hand landmark detection  
+- Custom Python script for:
+  - Finger angle extraction  
+  - Mapping landmarks → servo angles  
+  - Serial communication with Arduino  
 
-A custom PCB was intentionally not used for this build. Given the prototype-oriented nature of the system and the need for rapid iteration, a zero board solution provided faster debugging, easier modifications, and sufficient reliability.
-
-### Microcontroller
-- Arduino Nano
-  - Dedicated to low-level servo control
-  - Receives real-time angle commands over serial
-
-### Power System
-- High-current DC–DC buck converter
-- External LiPo battery supply
-- Separate high-current servo power rail
-- Common ground shared between logic and power stages
-
-### Wiring
-- Servo power routed using thicker-gauge wiring
-- Signal lines kept short to reduce noise
-- All interconnections soldered directly on perfboard
-
-This approach proved stable under continuous operation and allowed quick changes during calibration and testing.
+### Arduino (Embedded Side)
+- Receives servo angle commands over serial  
+- Drives individual servo motors accordingly  
+- The Arduino sketch **must be flashed first** for the Python script to work  
 
 ---
 
-## Computer Vision Pipeline
+## Repository Structure
 
-- Libraries:
-  - OpenCV
-  - MediaPipe Hands
-  - PySerial
-- Processing steps:
-  1. Hand detection
-  2. Extraction of finger joint landmarks
-  3. Computation of finger curl angles
-  4. Normalization and range mapping
-  5. Smoothing and rate limiting
-  6. Transmission to Arduino via serial
-
-Filtering is applied to reduce jitter and prevent abrupt servo movements.
-
----
-
-## Serial Communication Protocol
-
-Commands sent from the host computer to the Arduino use a simple text-based protocol.
-
-Example format:
-S:thumb,index,middle,ring,pinky
-
-
-Example command:
-S:90,45,78,80,120
-
-
-On communication loss or invalid input, the controller holds the last valid state or moves to a safe open-hand position.
+```
+.
+├── Arduino/
+│   └── robotic_hand_controller.ino
+│
+├── Python/
+│   └── hand_tracking_control.py
+│
+├── Images/
+│   ├── full_system_setup.jpg
+│   ├── wiring_closeup.jpg
+│   └── robotic_hand.jpg
+│
+├── LICENSE_HARDWARE
+├── LICENSE_SOFTWARE
+└── README.md
+```
 
 ---
 
-## Calibration and Testing
+## Setup Instructions
 
-- Per-finger calibration for minimum, maximum, and neutral positions
-- Software-side clamping to prevent mechanical overtravel
-- Tested under continuous operation
-- Observed latency: approximately 300 ms end-to-end
+### 1. Flash Arduino Code
+- Open the Arduino sketch from `/Arduino`
+- Select **Arduino Nano**
+- Flash the code to the board
 
-The system remains stable during prolonged operation, with predictable servo behavior.
+### 2. Python Environment
+Install dependencies:
+```bash
+pip install opencv-python mediapipe pyserial
+```
 
----
-
-## Known Limitations
-
-- No force or tactile feedback
-- Wrist articulation disabled for reliability
-- Performance depends on lighting conditions
-- Tendon wear over extended use (expected for nylon systems)
-
-These limitations are documented and understood based on physical testing.
-
----
-
-## Licensing
-
-- Hardware design files: CERN Open Hardware Licence v2
-- Software: MIT License
-- Mechanical base design: InMoov project by Gaël Langevin
-
-Original electronics design, control logic, and system integration are independently implemented.
+### 3. Run the System
+- Connect Arduino via USB
+- Connect external power to servos
+- Run the Python script:
+```bash
+python hand_tracking_control.py
+```
 
 ---
 
-## Academic Context
+## Notes & Design Decisions
 
-Developed as part of Project-Based Learning (PBL)  
-Manipal University Jaipur
+- Zero-board wiring was chosen for speed, flexibility, and ease of debugging  
+- External power regulation is mandatory for stable servo operation  
+- Latency is low enough for intuitive real-time control  
+- This system prioritizes robustness over miniaturization  
+
+---
+
+## Licenses
+
+- **Hardware:** CERN Open Hardware Licence v2  
+- **Software:** MIT License  
+
+See `LICENSE_HARDWARE` and `LICENSE_SOFTWARE` for details.
+
+---
+
+## Status
+
+✅ Fully built  
+✅ Fully functional  
+✅ Tested with real-time hand tracking  
+
+Future improvements may include PCB integration, feedback sensors, and improved kinematic mapping.
 
 ---
 
 ## Author
 
-Pranav Anil
+Pranav Anil  
+Robotics & Embedded Systems  
 
----
-
-## Notes
-
-This repository documents a working robotic system.  
-It is intended for learning, experimentation, and reproducibility rather than marketing or demonstration-only purposes.
-
-
+If you build on this, credit is appreciated.
