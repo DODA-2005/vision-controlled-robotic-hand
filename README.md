@@ -103,7 +103,7 @@ The control electronics were implemented on a zero-board using direct tin wiring
 ## System Integration
 
 <p align="center">
-  <img src="images/all_connected_clean.jpg" width="600">
+  <img src="images/all_connected.jpg" width="600">
   <br>
   <em>LiPo-powered system with buck regulation and Nano-based control electronics</em>
 </p>
@@ -179,7 +179,7 @@ See `LICENSE_HARDWARE` and `LICENSE_SOFTWARE` for details.
 ✅ Fully functional  
 ✅ Tested with real-time hand tracking  
 
-Future improvements may include PCB integration, feedback sensors, and improved kinematic mapping.
+Future improvements may include feedback sensors, and improved kinematic mapping.
 
 ---
 
