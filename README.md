@@ -8,6 +8,7 @@ This repository documents a **working system**, not a simulation or concept buil
 
 ---
 
+
 ## Overview
 
 The robotic hand is controlled using hand-tracking data extracted from a live camera feed. Finger positions are mapped to servo angles and transmitted to the controller over serial communication.
@@ -15,6 +16,8 @@ The robotic hand is controlled using hand-tracking data extracted from a live ca
 The system was built with rapid iteration and reliability in mind, using a zero-board (perfboard) wiring approach rather than a custom PCB.
 
 Mechanical inspiration for the hand structure was taken from the open-source InMoov project. Electronics, wiring logic, control strategy, and software integration were designed and implemented independently.
+
+![Robotic Hand – Full Assembly](images/full_hand.jpeg)
 
 ---
 
@@ -31,6 +34,14 @@ Servo Motors
   ↓
 Robotic Hand
 ```
+
+---
+
+## Actuation System
+
+The hand is actuated using high-torque servo motors arranged to provide independent finger control.
+
+![Servo Actuation Layout](images/servo.jpeg)
 
 ---
 
@@ -66,6 +77,30 @@ Robotic Hand
 - Receives servo angle commands over serial  
 - Drives individual servo motors accordingly  
 - The Arduino sketch **must be flashed first** for the Python script to work  
+
+---
+
+## Motion Demonstration
+
+The system supports real-time finger curling driven by computer vision input.
+
+![Finger Curling Motion](images/curl.jpeg)
+
+---
+
+## Control Electronics
+
+The control electronics were implemented on a zero-board using direct tin wiring for rapid iteration and debugging.
+
+![Zero Board – Top View](images/zero_board_up.jpeg)
+
+![Tin-Wired Connections](images/tin_connection.jpeg)
+
+---
+
+## System Integration
+
+![Complete System – Power, Control, and Actuation](images/all_connected.jpg)
 
 ---
 
