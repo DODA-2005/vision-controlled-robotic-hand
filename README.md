@@ -110,28 +110,6 @@ The control electronics were implemented on a zero-board using direct tin wiring
 
 ---
 
-## Repository Structure
-
-```
-.
-├── Arduino/
-│   └── robotic_hand_controller.ino
-│
-├── Python/
-│   └── hand_tracking_control.py
-│
-├── Images/
-│   ├── full_system_setup.jpg
-│   ├── wiring_closeup.jpg
-│   └── robotic_hand.jpg
-│
-├── LICENSE_HARDWARE
-├── LICENSE_SOFTWARE
-└── README.md
-```
-
----
-
 ## Setup Instructions
 
 ### 1. Flash Arduino Code
