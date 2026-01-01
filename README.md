@@ -166,6 +166,8 @@ Future improvements may include feedback sensors, and improved kinematic mapping
 Pranav Anil  
 Robotics & Embedded Systems  
 
+---
+
 ## Attribution
 
 If you use, modify, or build upon this project, you must provide
