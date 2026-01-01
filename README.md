@@ -17,7 +17,7 @@ The system was built with rapid iteration and reliability in mind, using a zero-
 
 Mechanical inspiration for the hand structure was taken from the open-source InMoov project. Electronics, wiring logic, control strategy, and software integration were designed and implemented independently.
 
-![Robotic Hand – Full Assembly](images/full_hand.jpeg)
+<img src="images/full_hand.jpeg" alt="Vision Controlled Robotic Hand" width="900">
 
 ---
 
@@ -40,9 +40,9 @@ Robotic Hand
 ## Actuation System
 
 The hand is actuated using high-torque servo motors arranged to provide independent finger control.
-
-![Servo Actuation Layout](images/servo.jpeg)
-
+<p align="center">
+<img src="images/servo.jpeg" alt="Servo Actuation layout" width="500">
+</p>
 ---
 
 ## Hardware
@@ -84,7 +84,9 @@ The hand is actuated using high-torque servo motors arranged to provide independ
 
 The system supports real-time finger curling driven by computer vision input.
 
-![Finger Curling Motion](images/curl.jpeg)
+<p align="center">
+  <img src="images/curl.jpeg" width="500">
+</p>
 
 ---
 
@@ -92,15 +94,15 @@ The system supports real-time finger curling driven by computer vision input.
 
 The control electronics were implemented on a zero-board using direct tin wiring for rapid iteration and debugging.
 
-![Zero Board – Top View](images/zero_board_up.jpeg)
+<img src="images/zero_board_up.jpeg" width="400">
 
-![Tin-Wired Connections](images/tin_connection.jpeg)
+<img src="images/tin_connection.jpeg" width="400">
 
 ---
 
 ## System Integration
 
-![Complete System – Power, Control, and Actuation](images/all_connected.jpg)
+<img src="images/all_connected.jpg" alt="System wiring" width="600">
 
 ---
 
