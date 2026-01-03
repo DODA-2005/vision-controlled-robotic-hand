@@ -21,6 +21,12 @@ Mechanical inspiration for the hand structure was taken from the open-source InM
 
 ---
 
+## 🎥 Demo
+
+[▶️ Watch Demo Video](https://youtube.com/shorts/XkPs5vDFaoI?feature=share)**
+
+---
+
 ## System Architecture
 
 ```
